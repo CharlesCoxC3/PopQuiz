@@ -9,21 +9,21 @@
 </head>
 <body>
     <header>
-        <h3>View Highscores</h3>
-        <div class="timer-count"> Time: 75</div>
+        <h3>View Highscores<div class="timer-count"> Time: 75</div></h3>
+        
     </header>
     <main>
         <section>
             <div class="pop-quiz-container">
                 <section id="homescreen">
-                <h1>Coding Pop Quiz Game!</h1>
+                <h1>Coding Pop Quiz!</h1>
                     <p>This quiz will be on various topics you've learned throughout
                         bootcamp so far. Once you hit the start button, you'll have 75 seconds to 
                         complete the quiz. Wrong answers will result in time being subtracted! Good luck!
                     </p>
-                    <button class="start-button">Start</button>
+                    <button class="btn" id="start-button">Start Quiz</button>
                 </section>
-                <section class="hide" id="questions"></section>
+          
                 <ul class="answer-btn">
                     <ol><button class="btn">Answer 1</button></ol>
                     <ol><button class="btn">Answer 2</button></ol>
@@ -34,6 +34,6 @@
             </div>
         </section>
     </main>
-    <script src="./assets/script.js"></script>
 </body>
+<script src="./assets/script.js"></script>
 </html>

@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 110px;
+}
+
+.timer-count {
+float: right;
+
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+    padding: 35px;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: underline;
+}
+
+.pop-quiz-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: solid 5px black;
+    box-shadow: 0 0 10px 3px;
+}
+
+#homescreen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    font-size: 40px;
+    padding: 10px;
+   
+}
+
+ol {
+    padding: 10px;
+}
