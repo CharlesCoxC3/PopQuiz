@@ -17,7 +17,7 @@ float: right;
 
 }
 
-#startup{
+#question-section{
     font-size: 20px;
     text-align: center;
     padding: 35px;
@@ -55,14 +55,14 @@ h1 {
     padding: 10px;
     background-color: blueviolet;
     border-radius: 10px;
-    border: 5px solid blue;
+    border: 1px solid blue;
     color: white;  
 }
 
 .btn:hover{
     color: rgb(30, 255, 0);
     border: solid 2px rgb(28, 191, 94);
-    box-shadow: 0 0 10px 5px;
+    box-shadow: 0 0 10px 2px;
 }
 
 .hidden {
@@ -74,7 +74,7 @@ h1 {
     font-size: 20px;
     padding: 10px;
     background-color: blueviolet;
-    border: 5px solid blue;
+    border: 1px solid blue;
     border-radius: 10px;
     display: flex;
     margin: 20px;
@@ -84,5 +84,9 @@ h1 {
 .choice-container:hover {
     color: rgb(30, 255, 0);
     border: solid 2px rgb(28, 191, 94);
-    box-shadow: 0 0 10px 5px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.choice-text{
+    margin-left: 10px;
 }
