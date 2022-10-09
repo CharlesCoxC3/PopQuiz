@@ -66,3 +66,19 @@ ol {
 .hidden {
     display: none;
 }
+
+h4 {
+    text-decoration: overline;
+    margin-left: 20px;
+    font-style: italic;
+}
+
+/* .answerBtns {
+    font-size: 20px;
+    padding: 15px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    border-color: black;
+    display: flex;
+    margin: 20px
+} */
