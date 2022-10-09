@@ -9,7 +9,7 @@ var answerBtn = document.querySelector(".answers");
 answerBtn.classList.add("hidden");
 
 var currentQuestion = {};
-var acceptingAnswers = true;
+var acceptingAnswers = false;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
@@ -84,11 +84,45 @@ function startTimer() {
 };
 
 function getNewQuestion() {
+
+    if(availableQuestions.length === 0 || questionCounter > maxQuestions){
+        getScore()
+    }
     questionCounter++;
     var questionIndex = Math.floor(Math.random()* availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     questionSection.textContent = currentQuestion.question;
-}
+
+    choices.forEach(function(choice){
+        var number = choice.dataset["number"];
+        choice.textContent = currentQuestion["choice" + number];
+    })
+
+    availableQuestions.splice(questionIndex,1);
+    acceptingAnswers = true;
+};
+
+choices.forEach(function(choice){
+    choice.addEventListener("click", function(e){
+        console.log(e.target);
+        if (!acceptingAnswers) return;
+
+        acceptingAnswers= false;
+        var selectedChoice = e.target;
+        var selectedAnswer = selectedChoice.dataset["number"];
+        console.log(selectedAnswer);
+
+        var classtoApply = "incorrect";
+        if (selectedAnswer == currentQuestion.answer){
+            classtoApply = "correct";
+        }
+        console.log(classtoApply);
+
+        selectedChoice.parentElement.classList.add(classtoApply);
+        
+        getNewQuestion();
+    });
+});
 
 
 function updateScore(){    
@@ -99,13 +133,14 @@ function wrongAnswer(){
     timerCount = timerCount -10
 };
 
-/*
-function getScore(){
-    answerSection.innerHTML = ""
-    questionSection.textContent = "Your final score is: " + score;
 
-}
-        */
+function getScore(){
+    answerBtn.classList.add("hidden");
+    questionSection.textContent = "Your final score is: " + score;
+    clearInterval(timer);
+
+};
+
 
 
   startButton.addEventListener("click", startGame);
