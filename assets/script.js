@@ -7,6 +7,10 @@ var questionSection = document.querySelector("#question-section");
 var choices = Array.from(document.querySelectorAll(".choice-text"));
 var answerBtn = document.querySelector(".answers");
 answerBtn.classList.add("hidden");
+var highscores = document.querySelector(".highscores")
+highscores.classList.add("hidden");
+var highscoreBtn = document.querySelector("#saveScoreBtn");
+
 
 var currentQuestion = {};
 var acceptingAnswers = false;
@@ -85,9 +89,10 @@ function startTimer() {
 
 function getNewQuestion() {
 
-    if(availableQuestions.length === 0 || questionCounter > maxQuestions){
+    if (availableQuestions.length === 0 || questionCounter > maxQuestions){
         getScore()
-    }
+    } 
+
     questionCounter++;
     var questionIndex = Math.floor(Math.random()* availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -100,6 +105,8 @@ function getNewQuestion() {
 
     availableQuestions.splice(questionIndex,1);
     acceptingAnswers = true;
+    
+
 };
 
 choices.forEach(function(choice){
@@ -115,12 +122,19 @@ choices.forEach(function(choice){
         var classtoApply = "incorrect";
         if (selectedAnswer == currentQuestion.answer){
             classtoApply = "correct";
+            updateScore()
         }
+        else{
+            wrongAnswer()
+        };
         console.log(classtoApply);
 
         selectedChoice.parentElement.classList.add(classtoApply);
         
-        getNewQuestion();
+        setTimeout(function(){
+            selectedChoice.parentElement.classList.remove(classtoApply);
+            getNewQuestion();
+        }, 1000);
     });
 });
 
@@ -135,12 +149,17 @@ function wrongAnswer(){
 
 
 function getScore(){
+    questionSection.textContent = "";
     answerBtn.classList.add("hidden");
-    questionSection.textContent = "Your final score is: " + score;
+    highscores.classList.remove("hidden");
     clearInterval(timer);
+    
+    highscoreBtn.addEventListener("click", function(){})
+    
 
 };
 
 
 
   startButton.addEventListener("click", startGame);
+  
